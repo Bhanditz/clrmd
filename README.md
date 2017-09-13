@@ -1,3 +1,5 @@
+[![internal JetBrains project](http://jb.gg/badges/internal-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
+
 # Microsoft.Diagnostics.Runtime
 
 `Microsoft.Diagnostics.Runtime.dll` (nicknamed "CLR MD") is a process and crash
