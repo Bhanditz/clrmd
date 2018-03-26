@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 using System;
+using System.Runtime.Serialization;
 
 namespace Microsoft.Diagnostics.Runtime
 {
@@ -10,6 +11,7 @@ namespace Microsoft.Diagnostics.Runtime
     /// Exception thrown by Microsoft.Diagnostics.Runtime unless there is a more appropriate
     /// exception subclass.
     /// </summary>
+    [Serializable]
     public class ClrDiagnosticsException : Exception
     {
         /// <summary>
@@ -78,6 +80,13 @@ namespace Microsoft.Diagnostics.Runtime
         {
             base.HResult = (int)hr;
         }
+
+        /// <inheritdoc />
+        protected ClrDiagnosticsException(SerializationInfo info, StreamingContext context)
+            : base(info, context)
+        {
+        }
+
         #endregion
 
         internal static void ThrowRevisionError(int revision, int runtimeRevision)
