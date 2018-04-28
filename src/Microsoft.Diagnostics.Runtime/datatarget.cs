@@ -1666,7 +1666,7 @@ namespace Microsoft.Diagnostics.Runtime
             _advanced.GetThreadContext(context, contextSize);
         }
 
-        internal int ReadVirtual(ulong address, byte[] buffer, int bytesRequested, out int bytesRead)
+        protected virtual int ReadVirtual(ulong address, byte[] buffer, int bytesRequested, out int bytesRead)
         {
             SetClientInstance();
             if (buffer == null)
@@ -1970,12 +1970,6 @@ namespace Microsoft.Diagnostics.Runtime
             bool res = _spacesPtr.ReadVirtual(address, buffer, (uint)bytesRequested, out uint read) >= 0;
             bytesRead = res ? (int)read : 0;
             return res;
-        }
-
-        public int ReadVirtual(ulong address, byte[] buffer, uint bytesRequested, out uint bytesRead)
-        {
-            SetClientInstance();
-            return _spaces.ReadVirtual(address, buffer, bytesRequested, out bytesRead);
         }
 
         public IEnumerable<uint> EnumerateAllThreads()
