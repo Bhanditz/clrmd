@@ -1466,7 +1466,7 @@ namespace Microsoft.Diagnostics.Runtime
         }
     }
 
-    internal unsafe class DbgEngDataReader : IDisposable, IDataReader
+    public unsafe class DbgEngDataReader : IDisposable, IDataReader
     {
         private static int s_totalInstanceCount = 0;
         private static bool s_needRelease = true;

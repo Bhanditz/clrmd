@@ -11,7 +11,7 @@ using System.Threading;
 
 namespace Microsoft.Diagnostics.Runtime
 {
-    internal unsafe class DumpDataReader : IDataReader, IDisposable
+    public unsafe class DumpDataReader : IDataReader, IDisposable
     {
         private string _fileName;
         private DumpReader _dumpReader;
